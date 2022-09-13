@@ -8,25 +8,13 @@
     <artifactId>untitled</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-    </properties>
-
     <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-        </dependency>
-
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
             <version>3.12.4</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>net.bytebuddy</groupId>
             <artifactId>byte-buddy</artifactId>
@@ -40,6 +28,11 @@
         </dependency>
     </dependencies>
 
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+
     <build>
         <sourceDirectory>src/main/java</sourceDirectory>
         <plugins>
@@ -52,18 +45,14 @@
                     <target>11</target>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.9</version>
+                <version>0.8.7</version>
                 <executions>
                     <execution>
-                        <!--id выбираешь самостоятельно-->
                         <id>prepare-agent</id>
-                        <!--в какой фазе maven будет выполняться цель-->
                         <phase>initialize</phase>
-                        <!--цель jacoco, которую нужно выполнить-->
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
@@ -74,7 +63,6 @@
                         <goals>
                             <goal>report</goal>
                         </goals>
-
                     </execution>
                 </executions>
             </plugin>
