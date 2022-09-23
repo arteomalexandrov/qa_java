@@ -6,35 +6,28 @@ import org.junit.runners.Parameterized;
 
 import static org.junit.Assert.assertEquals;
 
-public class ParameterizedTest {
-}
-
 @RunWith(Parameterized.class)
-public class CheckIsSex {
-
+public class ParameterizedTest {
     private String sex;
     private boolean result;
 
-    public void CheckIsSexTest(String sex, boolean result) {
+    public ParameterizedTest(String sex, boolean result) {
         this.sex = sex;
         this.result = result;
     }
 
     @Parameterized.Parameters
-    public static Object[][] getTextData() {
-        return new Object[][] {
-                {"Он", true},
-                {"Она", false},
-                {"Оно", false},
+    public static Object[][] getTestData() {
+        return new Object[][]{
+                {"Самец", true},
+                {"Самка", false},
         };
     }
 
     @Test
-    public void checkIsSexWhenSexThenResult() {
-        HasMane hasMane = new HasMane();
-        // Передай сюда возраст пользователя
-        boolean isSex = hasMane.checkIsSex(sex);
-        // Сравни полученный и ожидаемый результаты, не забудь про сообщение об ошибке
-        assertEquals("Если пол мужской, будет true, иначе false", result, isSex);
+    public void checkHasManeResultWhenSexLion() throws Exception {
+        Lion lion = new Lion(sex);
+        boolean hasMane = lion.doesHaveMane();
+        assertEquals(result, hasMane);
     }
 }
