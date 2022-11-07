@@ -25,12 +25,6 @@ public class Lion {
     }
 
 
-//    private Feline feline;
-//
-//    public Lion(Feline feline) {
-//        this.feline = feline;
-//    }
-
     public int getKittens() {
         return feline.getKittens();
     }
