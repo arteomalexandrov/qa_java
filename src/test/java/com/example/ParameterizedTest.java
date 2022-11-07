@@ -26,7 +26,7 @@ public class ParameterizedTest {
 
     @Test
     public void checkHasManeResultWhenSexLion() throws Exception {
-        Lion lion = new Lion(sex);
+        Lion lion = new Lion(Feline, sex);
         boolean hasMane = lion.doesHaveMane();
         assertEquals(result, hasMane);
     }
